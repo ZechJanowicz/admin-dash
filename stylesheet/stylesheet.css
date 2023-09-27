@@ -3,3 +3,58 @@
 * {
     color: red;
 }
+
+
+.grid-wrapper {
+    grid-template-columns: 200px 2fr 1fr;
+    display: grid;
+    grid-template-areas: 
+    "sidebar top-header top-header"
+    "sidebar header header"
+    "sidebar topics trending"
+    "sidebar discussions users"
+    ;
+}
+
+
+.top-header {
+    grid-area: top-header;
+    background-color: orange;
+}
+
+.header {
+    grid-area: header;
+}
+
+
+.sidebar {
+    background-color: yellow;
+    grid-area: sidebar;
+}
+
+.topics {
+    background-color: blue;
+    grid-area: topics;
+}
+
+.discussions {
+    grid-area: discussions;
+    background-color: green;
+}
+
+.trending {
+    grid-area: trending;
+    background-color: purple;
+}
+
+.users {
+    background-color: black;
+    grid-area: users;
+}
+
+#username-box {
+    background-color: pink;
+    display: flex;
+    height: 100px;
+    width: 15vw;
+}
