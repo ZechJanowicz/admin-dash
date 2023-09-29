@@ -1,13 +1,14 @@
 @import url(/node_modules/normalize.css/normalize.css);
 
 * {
+    margin: 0;
     color: black;
     font-weight: bold;
 }
 
 #grid-wrapper {
     gap: 5px;
-    grid-template-columns: 200px 60%;
+    grid-template-columns: 200px 70vw;
     display: grid;
     grid-template-rows: 1fr 80px 60px;
     grid-template-areas:
@@ -48,18 +49,34 @@
     justify-content: end;
     flex: 1;
     list-style-type: none;
-    gap: 30px;
-    padding-right: 70px;
+    padding-right: 40px;
 }
 
 .top-header > ul > li {
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.top-header > ul >li:nth-child(1) {
+    padding-right: 40px;
+}
+
+.top-header > ul > li > svg {
+    padding-top: 5px;;
 }
 
 .top-header  {
     grid-area: top-header;
     background-color: orange;
     display: flex;
+}
+
+.top-header > ul > li > img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
 }
 
 .header {
@@ -83,7 +100,7 @@
 }
 
 .topics > ul  {
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 1fr;
     display: grid;
     text-align: center;
     list-style-type: none;
@@ -96,7 +113,7 @@
 
 .card-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(32vw, 1fr));
     gap: 20px;
 
 }
@@ -107,8 +124,18 @@
 
 .card {
     background-color: rgb(0, 255, 242);
-    height: 350px;
+    height: 345px;
     width: 100%;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.card >div:nth-child(3) {
+    color: red;
+    display: flex;
+    flex: 1;
+    justify-content: end;
+    align-items: end;
 }
 
 #searchbar::placeholder{
@@ -139,6 +166,7 @@
     height: 80px;
     width: 80px;
     border-radius: 50px;
+    object-fit: cover;
 }
 
 .userbox {
@@ -164,6 +192,7 @@
 }
 
 
+
 .sidebar > ul > li > svg {
     padding-right: 20px;
 }
@@ -171,15 +200,38 @@
 
 
 .sidebar > ul {
-    align-items: center;
+    display: grid;
+    justify-content: start;
+    gap: 45px;
     list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 100%;
-    margin: 0;
 }
 
-.sidebar > ul > li {
-    align-content: end;
+.sidebar > ul > li  {
+    height: 30px;
+    align-items: center;
+    display: flex;
+    flex: 1;
+}
+
+
+.bottom-half > ul {
+    gap: 45px;
+    padding-top: 50px;
+    list-style-type: none;
+    display: grid;
+    justify-content: start;
+    margin: 0;
+    height: 40%;
+}
+
+.bottom-half > ul > li {
+    align-items: center;
+    display: flex;
+    flex: 1;
+}
+
+.bottom-half > ul > li > svg {
+    padding-right: 20px;
+    height: 20px;
+    width: 20px;
 }
