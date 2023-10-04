@@ -14,7 +14,7 @@
     grid-template-areas:
     "sidebar-title top-header top-header"
     "sidebar header header"
-    "sidebar topics topics"
+    "sidebar Ltopics Rtopics"
     "sidebar discussions trending"
     "bottomsidebar discussions users"
     "bottomsidebar discussions users"
@@ -94,13 +94,30 @@
     background-color: bisque;
 }
 
+.rTopics {
+    background-color: green;
+    grid-area: Rtopics;
+}
+
 .topics {
     background-color: blue;
-    grid-area: topics;
+    grid-area: Ltopics;
+}
+
+.rTopics > ul {
+    display: grid;
+    align-content: end;
+    list-style-type: none;
+    height: 100%;
+}
+
+.rTopics > ul > li {
+    justify-self: start;
+    height: 100%;
+    padding-bottom: 10px;
 }
 
 .topics > ul  {
-    grid-template-columns: 3fr 1fr;
     display: grid;
     align-content: end;
     list-style-type: none;
@@ -108,7 +125,7 @@
 }
 
 .topics > ul > li {
-    justify-self: center;
+    justify-self: start;
     height: 100%;
     padding-bottom: 10px;
 }
@@ -134,6 +151,7 @@
     width: 100%;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
+    overflow: hidden;
 }
 
 
@@ -143,6 +161,13 @@
     flex: 1;
     justify-content: end;
     align-items: end;
+    padding-bottom: 2px;
+}
+
+.card>div:nth-child(3)>svg{
+    width: 30px;
+    height: 20px;
+    padding-left: 15px;
 }
 
 #searchbar::placeholder{
@@ -152,10 +177,18 @@
 .trending {
     grid-area: trending;
     background-color: purple;
-    display: grid;
-    justify-content: center;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;    
+}
+
+.trending>.subject{
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px;
+
 }
 
 .subject {
@@ -168,15 +201,11 @@
 
 .subject >div:nth-child(1) {
     margin-left: 20px;
-    height: fit-content;
-    height: 100%;
-    margin-bottom: -100%;
 }
 
 .subject > div:nth-child(2) {
     background-color: purple;
     height: fit-content;
-    overflow-y: auto;
     margin-left: 20px;
     border-bottom: dashed gray;
     margin-right: 20px;
@@ -189,7 +218,20 @@
 .users {
     background-color: red;
     grid-area: users;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
 }
+
+.users>.subject {
+    padding-bottom: 40px;
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+}
+
 
 #username-box {
     background-color: pink;
