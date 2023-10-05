@@ -1,13 +1,31 @@
 @import url(/node_modules/normalize.css/normalize.css);
 
+
+
+:root {
+    --cards: #45A29E;
+    --header: #116466;
+    --card-background: #1F2833;
+    --topic-trending: #C5C6C7;
+}
+
+body {
+    background-color: var(--card-background);
+}
+
 * {
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     color: black;
     font-weight: bold;
 }
 
+.sidebar-title>span {
+    color: white;
+    padding-left: 5px;
+}
+
 #grid-wrapper {
-    gap: 5px;
     grid-template-columns: 200px 70vw;
     display: grid;
     grid-template-rows: 1fr 80px 60px;
@@ -22,6 +40,7 @@
 }
 
 #searchbar {
+    box-shadow: inset 10px 10px 50px -25px black;
     width: 50vw;
     height: 30px;
     border-radius: 15px;
@@ -29,9 +48,14 @@
     margin-left: 30px;
 }
 
+#searchbar:focus {
+    outline: none;
+    padding-left: 10px;
+}
+
 .sidebar-title {
     grid-area: sidebar-title;
-    background-color: aqua;
+    background-color: var(--header);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,8 +67,18 @@
 
 }
 
+#username-box>ul>ll>button {
+    background-color: var(--cards);
+    width: 70px;
+    border-radius: 50%;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 30px;
+}
+
 .top-header > ul{
-    background-color: orange;
+    background-color: var(--header);
     display: flex;
     justify-content: end;
     flex: 1;
@@ -69,7 +103,7 @@
 
 .top-header  {
     grid-area: top-header;
-    background-color: orange;
+    background-color: var(--header);
     display: flex;
 }
 
@@ -85,23 +119,24 @@
 
 
 .sidebar {
-    background-color: yellow;
+    background-color: var(--header);
     grid-area: sidebar;
 }
 
 .bottom-half {
     grid-area: bottomsidebar;
-    background-color: bisque;
+    background-color: var(--header);
 }
 
 .rTopics {
-    background-color: green;
+    background-color: var(--topic-trending);
     grid-area: Rtopics;
 }
 
 .topics {
-    background-color: blue;
+    background-color: var(--topic-trending);
     grid-area: Ltopics;
+    margin-left: 10px;
 }
 
 .rTopics > ul {
@@ -132,13 +167,13 @@
 
 .discussions  {
     grid-area: discussions;
-    background-color: green;
+    background-color: var(--card-background);
 }
 
 .card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30vw, 1fr));
-    gap: 20px;
+    row-gap: 10px;
 }
 
 .discussions > div {
@@ -146,9 +181,9 @@
 }
 
 .card {
-    background-color: rgb(0, 255, 242);
+    background-color: var(--cards);
     height: 400px;
-    width: 100%;
+    margin-left: 10px;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     overflow: hidden;
@@ -156,7 +191,6 @@
 
 
 .card >div:nth-child(3) {
-    color: red;
     display: flex;
     flex: 1;
     justify-content: end;
@@ -176,23 +210,27 @@
 
 .trending {
     grid-area: trending;
-    background-color: purple;
+    background-color: var(--card-background);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 30px;    
+    justify-content: center;
 }
 
 .trending>.subject{
-    background-color: yellow;
     display: flex;
     flex-direction: column;
-    padding-bottom: 40px;
+}
 
+.subject>div:first-child {
+    padding-top: 5px;
+    padding-bottom: 10px;
 }
 
 .subject {
-    background-color: orange;
+    border-left: solid black;
+    border-right: solid black;
+    background-color: var(--cards);
     width: 300px;
     display: grid;
 }
@@ -200,11 +238,10 @@
 
 
 .subject >div:nth-child(1) {
-    margin-left: 20px;
+    padding-left: 20px;
 }
 
 .subject > div:nth-child(2) {
-    background-color: purple;
     height: fit-content;
     margin-left: 20px;
     border-bottom: dashed gray;
@@ -216,7 +253,7 @@
 }
 
 .users {
-    background-color: red;
+    background-color:var(--card-background);
     grid-area: users;
     display: flex;
     flex-direction: column;
@@ -226,15 +263,13 @@
 }
 
 .users>.subject {
-    padding-bottom: 40px;
-    background-color: yellow;
     display: flex;
     flex-direction: column;
 }
 
 
 #username-box {
-    background-color: pink;
+    background-color: var(--header);
     display: flex;
     height: 80px;
 }
@@ -275,12 +310,13 @@
 
 
 .sidebar > ul > li > svg {
-    padding-right: 20px;
+    margin-right: 20px;
 }
 
 
 
 .sidebar > ul {
+    padding-top: 30px;
     display: grid;
     justify-content: start;
     gap: 45px;
@@ -312,7 +348,7 @@
 }
 
 .bottom-half > ul > li > svg {
-    padding-right: 20px;
+    margin-right: 20px;
     height: 20px;
     width: 20px;
 }
